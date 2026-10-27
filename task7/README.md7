@@ -1,0 +1,83 @@
+
+n = int(input("Enter number of products: "))
+
+subtotal = 0
+
+for i in range(n):
+    print("Product", i + 1)
+    price = float(input("Enter price: "))
+    quantity = int(input("Enter quantity: "))
+
+    amount = price * quantity
+    subtotal = subtotal + amount
+
+discount = 0
+
+if subtotal >= 5000:
+    discount = subtotal * 0.10
+elif subtotal >= 2000:
+    discount = subtotal * 0.05
+
+if discount > 500:
+    discount = 500
+
+taxable_amount = subtotal - discount
+tax = taxable_amount * 0.05
+total = taxable_amount + tax
+
+print("Subtotal: Rs.", round(subtotal, 2))
+print("Discount: Rs.", round(discount, 2))
+print("Tax: Rs.", round(tax, 2))
+print("Final Bill: Rs.", round(total, 2))
+
+Algorithm
+1. Start.
+2. Enter the number of products.
+3. For each product, enter price, quantity and category.
+4. Calculate each product's amount.
+5. Apply 5% tax for food and 18% tax for electronics.
+6. Calculate subtotal and total tax.
+7. Apply a 10% discount if subtotal is at least ₹5,000; otherwise apply 5%.
+8. Limit the discount to ₹1,000.
+9. Calculate and display the final bill.
+10. Stop.
+Example and Sample Output
+  Sample Input
+Enter number of products: 2
+Enter product price: 2000
+Enter quantity: 2
+Enter category (food/electronics): electronics
+Enter product price: 500
+Enter quantity: 2
+Enter category (food/electronics): food
+
+
+Calculation
+- Subtotal = ₹4,000 + ₹1,000 = ₹5,000
+- Tax = ₹720 + ₹50 = ₹770
+- Discount = 10% of ₹5,000 = ₹500
+- Final bill = ₹5,000 + ₹770 − ₹500 = ₹5,270
+Sample Output
+Subtotal: 5000.0
+Total Tax: 770.0
+Discount: 500.0
+Final Bill: 5270.0                         
+
+```mermaid
+flowchart TD
+    A([START]) --> B[/Enter product details, quantity and category/]
+    B --> C[Calculate item price]
+    C --> D[Calculate subtotal]
+    D --> E[Apply category specific tax]
+    E --> F{Subtotal meets discount threshold?}
+    F -->|Yes| G[Calculate discount]
+    F -->|No| H[Discount = 0]
+    G --> I{Discount exceeds maximum limit?}
+    I -->|Yes| J[Apply maximum concession limit]
+    I -->|No| K[Keep calculated discount]
+    J --> L[Calculate final bill]
+    K --> L
+    H --> L
+    L --> M[/Display itemized invoice and total/]
+    M --> N([STOP])
+```
