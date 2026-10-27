@@ -1,0 +1,69 @@
+
+days = int(input("Enter required validity days: "))
+budget = int(input("Enter your budget: "))
+
+plans = [
+    ["Plan A", 199, 2, 28],
+    ["Plan B", 299, 3, 56],
+    ["Plan C", 399, 5, 84]
+]
+
+best_cost = 99999
+best_plan = "No eligible plan"
+
+for plan in plans:
+    name = plan[0]
+    price = plan[1]
+    data = plan[2]
+    validity = plan[3]
+
+    if validity >= days and price <= budget:
+        if price < best_cost:
+            best_cost = price
+            best_plan = name
+
+print("Best Plan:", best_plan)
+
+if best_plan != "No eligible plan":
+    print("Plan Cost: Rs.", best_cost)
+else:
+    print("No plan satisfies the conditions.")
+Algorithm
+1. Start.
+2. Read required validity days and budget.
+3. Store mobile plan details in a list.
+4. Set the minimum cost to a large value.
+5. Check each plan's validity and price.
+6. If both conditions are satisfied, compare its price with the minimum cost.
+7. Select the cheapest eligible plan.
+8. Display the selected plan and cost.
+9. Stop.
+10. Example / Sample Output
+Enter required validity days: 50
+Enter your budget: 350
+Best Plan: Plan B
+Plan Cost: Rs. 299
+
+```mermaid
+flowchart TD
+    A([START]) --> B[/Enter usage, required validity and budget/]
+    B --> C[/Enter mobile plan details/]
+    C --> D[Calculate cost of each plan]
+    D --> E[Calculate excess charges]
+    E --> F{Plan meets usage, validity and budget?}
+    F -->|Yes| G[Select eligible plan]
+    F -->|No| H[Check next plan]
+    H --> I{More plans available?}
+    I -->|Yes| D
+    I -->|No| J{Any eligible plan?}
+    G --> K[Compare eligible plan costs]
+    K --> L[Select lowest cost plan]
+    L --> M[/Display best plan and total cost/]
+    J -->|No| N[/Display No Eligible Plan/]
+    J -->|Yes| K
+    M --> O([STOP])
+    N --> O
+```
+
+
+
