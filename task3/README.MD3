@@ -15,8 +15,37 @@ bill = total - discount
 print("Total Charges:", total)
 print("Discount:", discount)
 print("Final Bill:", bill)
-
 if bill >= 5000:
     print("High Payment")
 else:
     print("Normal Payment")
+
+Algorithm
+1. Start.
+2. Enter consultation, diagnostic and treatment charges.
+3. Calculate the total charges.
+4. If total charges are ₹5,000 or more, apply a 10% discount.
+5. Otherwise, give no discount.
+6. Calculate the final bill.
+7. Display total charges, discount and final bill.
+8. If the final bill is ₹5,000 or more, display “High Payment”.
+9. Otherwise, display “Normal Payment”.
+10. Stop.
+Sample Input and Output
+Input
+Enter consultation charge: 1000
+Enter diagnostic charge: 2000
+Enter treatment charge: 3000
+
+Calculation
+
+Total = ₹6,000
+
+Discount = ₹600
+
+Final bill = ₹5,400
+
+Output
+Total Charges: 6000
+Discount: 600.0
+Final Bill: 5400.0
