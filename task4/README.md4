@@ -1,0 +1,68 @@
+
+basic = int(input("Enter basic salary: "))
+allowance = int(input("Enter allowance: "))
+overtime = int(input("Enter overtime amount: "))
+
+gross = basic + allowance + overtime
+
+if gross <= 20000:
+    deduction = gross * 5 / 100
+elif gross <= 40000:
+    deduction = gross * 10 / 100
+else:
+    deduction = gross * 15 / 100
+
+net = gross - deduction
+
+print("Gross Salary:", gross)
+print("Deduction:", deduction)
+print("Net Salary:", net)
+
+Algorithm
+1. Start.
+2. Enter basic salary.
+3. Enter allowance and overtime amount.
+4. Calculate gross salary.
+5. If gross salary is up to ₹20,000, deduct 5%.
+6. If gross salary is up to ₹40,000, deduct 10%.
+7. Otherwise, deduct 15%.
+8. Calculate net salary by subtracting deductions from gross salary.
+9. Display gross salary, deduction and net salary.
+10. Stop.
+Sample Input and Output
+Input
+Enter basic salary: 25000
+Enter allowance: 5000
+Enter overtime amount: 2000
+
+
+Calculation
+
+Gross salary = ₹25,000 + ₹5,000 + ₹2,000 = ₹32,000
+
+Deduction = ₹32,000 × 10% = ₹3,200
+
+Net salary = ₹32,000 − ₹3,200 = ₹28,800
+
+Output
+Gross Salary: 32000
+Deduction: 3200.0
+Net Salary: 28800.0
+
+```mermaid
+flowchart TD
+    A([START]) --> B[/Enter basic salary, allowance, overtime/]
+    B --> C[Gross = Basic + Allowance + Overtime]
+    C --> D{Gross <= 20000?}
+    D -->|Yes| E[Deduction = Gross * 5 / 100]
+    D -->|No| F{Gross <= 40000?}
+    F -->|Yes| G[Deduction = Gross * 10 / 100]
+    F -->|No| H[Deduction = Gross * 15 / 100]
+    E --> I[Net = Gross - Deduction]
+    G --> I
+    H --> I
+    I --> J[/Display gross, deduction and net salary/]
+    J --> K([STOP])
+```
+
+
