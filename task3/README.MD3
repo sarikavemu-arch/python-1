@@ -49,3 +49,22 @@ Output
 Total Charges: 6000
 Discount: 600.0
 Final Bill: 5400.0
+
+```mermaid
+flowchart TD
+    A([START]) --> B[/Enter consultation, diagnostic, treatment charges/]
+    B --> C[Calculate total charges]
+    C --> D{Total >= 5000?}
+    D -->|Yes| E[Discount = Total * 10 / 100]
+    D -->|No| F[Discount = 0]
+    E --> G[Final bill = Total - Discount]
+    F --> G
+    G --> H[/Display total, discount and final bill/]
+    H --> I{Final bill >= 5000?}
+    I -->|Yes| J[/High Payment/]
+    I -->|No| K[/Normal Payment/]
+    J --> L([STOP])
+    K --> L
+```
+
+
